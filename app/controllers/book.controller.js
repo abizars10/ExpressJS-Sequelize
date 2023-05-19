@@ -7,7 +7,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   console.log(">> book controller api");
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.nama) {
     res.status(400).send({
       message: "Content can't be empty!",
     });
