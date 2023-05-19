@@ -1,0 +1,26 @@
+{
+  "name": "expressjs-sequelize",
+  "version": "1.0.0",
+  "description": "Biodara CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abizars10/ExpressJS-Sequelize.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abizars10/ExpressJS-Sequelize/issues"
+  },
+  "homepage": "https://github.com/abizars10/ExpressJS-Sequelize#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.1",
+    "sequelize": "^6.31.1"
+  }
+}
