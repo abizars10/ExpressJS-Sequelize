@@ -1,2 +1,2 @@
 # ExpressJS-Sequelize
-Biodara CRUD
+Biodata CRUD
