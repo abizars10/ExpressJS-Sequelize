@@ -53,6 +53,16 @@ app.delete("/:id", (req, res) => {
   bookController.delete(req, res);
 });
 
+// update book with an id router
+app.put("/:id", (req, res) => {
+  bookController.update(req, res);
+});
+
+// patch book with an id router
+app.patch("/:id", (req, res) => {
+  bookController.patch(req, res);
+});
+
 // set port, listen for request
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

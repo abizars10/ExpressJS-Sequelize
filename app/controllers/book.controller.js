@@ -85,3 +85,81 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+// Update Books
+exports.update = (req, res) => {
+  // Validate request
+  if (!req.body.nama) {
+    res.status(400).send({
+      message: "Content can't be empty!",
+    });
+    return;
+  }
+  if (!req.body.tempat_lahir) {
+    res.status(400).send({
+      message: "Author can't be empty!",
+    });
+    return;
+  }
+  if (!req.body.tanggal_lahir) {
+    res.status(400).send({
+      message: "Release date can't be empty!",
+    });
+    return;
+  }
+  if (!req.body.alamat) {
+    res.status(400).send({
+      message: "Subject can't be empty!",
+    });
+    return;
+  }
+
+  Book.findOne({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((data) => {
+      data.nama = req.body.nama;
+      data.tempat_lahir = req.body.tempat_lahir;
+      data.tanggal_lahir = req.body.tanggal_lahir;
+      data.alamat = req.body.alamat;
+      data.save();
+
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Error while finding book",
+      });
+    });
+};
+
+exports.patch = (req, res) => {
+  Book.findOne({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((data) => {
+      if (req.body.nama) {
+        data.nama = req.body.nama;
+      }
+      if (req.body.tempat_lahir) {
+        data.tempat_lahir = req.body.tempat_lahir;
+      }
+      if (req.body.tanggal_lahir) {
+        data.tanggal_lahir = req.body.tanggal_lahir;
+      }
+      if (req.body.alamat) {
+        data.alamat = req.body.alamat;
+      }
+      data.save();
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Error while finding book",
+      });
+    });
+};
